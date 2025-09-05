@@ -27,11 +27,13 @@ const HeroSection = () => {
       {/* Main Content */}
       <div className="text-center z-10 max-w-4xl mx-auto px-6">
         <div className="mb-8 animate-fade-in-up">
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-wider">
-            <span className="text-primary">PRACHAND</span>
-            <br />
-            <span className="text-foreground">ECHO</span>
-          </h1>
+          <div className="flex items-center justify-center">
+            <img 
+              src="/lovable-uploads/5af2ab13-e35d-46fb-8104-4134e5cdcc13.png" 
+              alt="Prachand Echo Logo" 
+              className="h-32 md:h-48 w-auto"
+            />
+          </div>
         </div>
         
         <div className="mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
@@ -57,7 +59,7 @@ const HeroSection = () => {
           <Button 
             variant="hero" 
             size="lg" 
-            className="text-xl px-12 py-6 h-auto pulse-glow"
+            className="text-xl px-12 py-6 h-auto"
             onClick={() => {
               document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
             }}

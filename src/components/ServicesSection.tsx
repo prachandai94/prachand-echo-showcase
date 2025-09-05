@@ -13,13 +13,8 @@ const services = [
   },
   {
     icon: Music,
-    title: "Background Music",
-    description: "Custom-composed background scores and ambient music tailored to enhance your content's emotional impact."
-  },
-  {
-    icon: Volume2,
-    title: "Sound Design",
-    description: "Creative sound effects, foley, and atmospheric audio design for immersive storytelling experiences."
+    title: "Background Music & Sound Design",
+    description: "Custom-composed background scores, ambient music, creative sound effects, foley, and atmospheric audio design for immersive storytelling experiences."
   }
 ];
 
@@ -36,7 +31,7 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={service.title}
