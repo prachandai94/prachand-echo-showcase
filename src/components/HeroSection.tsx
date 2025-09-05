@@ -1,19 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import AudioPlayer from "./AudioPlayer";
 
 const HeroSection = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [showAudioPlayer, setShowAudioPlayer] = useState(false);
 
-  const playBackgroundMusic = () => {
-    if (!isPlaying) {
-      // Create hidden SoundCloud iframe for autoplay
-      const iframe = document.createElement('iframe');
-      iframe.src = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1659737985&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true';
-      iframe.style.display = 'none';
-      iframe.allow = 'autoplay';
-      document.body.appendChild(iframe);
-      setIsPlaying(true);
-    }
+  const handleExperienceEcho = () => {
+    setShowAudioPlayer(true);
     document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -76,9 +69,7 @@ const HeroSection = () => {
             variant="hero" 
             size="lg" 
             className="text-xl px-12 py-6 h-auto"
-            onClick={() => {
-              document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-            }}
+            onClick={handleExperienceEcho}
           >
             Experience Echo
           </Button>
@@ -87,6 +78,13 @@ const HeroSection = () => {
 
       {/* Glow Effects */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-glow" />
+      
+      {/* Audio Player */}
+      <AudioPlayer 
+        isVisible={showAudioPlayer}
+        onPlay={() => {}}
+        onPause={() => {}}
+      />
     </section>
   );
 };
