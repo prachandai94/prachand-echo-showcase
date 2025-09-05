@@ -10,44 +10,64 @@ interface AudioPlayerProps {
 
 const AudioPlayer = ({ isVisible, onPlay, onPause }: AudioPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const [widget, setWidget] = useState<any>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    if (isVisible && !widget) {
+      // Load SoundCloud Widget API
+      const script = document.createElement('script');
+      script.src = 'https://w.soundcloud.com/player/api.js';
+      script.onload = () => {
+        if (iframeRef.current && (window as any).SC) {
+          const soundcloudWidget = (window as any).SC.Widget(iframeRef.current);
+          setWidget(soundcloudWidget);
+          
+          soundcloudWidget.bind((window as any).SC.Widget.Events.READY, () => {
+            soundcloudWidget.play();
+            setIsPlaying(true);
+            onPlay();
+          });
+
+          soundcloudWidget.bind((window as any).SC.Widget.Events.PLAY, () => {
+            setIsPlaying(true);
+            onPlay();
+          });
+
+          soundcloudWidget.bind((window as any).SC.Widget.Events.PAUSE, () => {
+            setIsPlaying(false);
+            onPause();
+          });
+        }
+      };
+      document.head.appendChild(script);
+    }
+  }, [isVisible]);
 
   const togglePlayback = () => {
-    if (audioRef.current) {
+    if (widget) {
       if (isPlaying) {
-        audioRef.current.pause();
-        setIsPlaying(false);
-        onPause();
+        widget.pause();
       } else {
-        audioRef.current.play();
-        setIsPlaying(true);
-        onPlay();
+        widget.play();
       }
     }
   };
-
-  useEffect(() => {
-    if (isVisible && audioRef.current && !isPlaying) {
-      audioRef.current.play();
-      setIsPlaying(true);
-      onPlay();
-    }
-  }, [isVisible]);
 
   if (!isVisible) return null;
 
   return (
     <>
-      <audio
-        ref={audioRef}
-        loop
-        onEnded={() => setIsPlaying(false)}
-        onPause={() => setIsPlaying(false)}
-        onPlay={() => setIsPlaying(true)}
-      >
-        {/* We'll use a placeholder audio for now since we can't directly access SoundCloud */}
-        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav" />
-      </audio>
+      <iframe
+        ref={iframeRef}
+        width="0"
+        height="0"
+        scrolling="no"
+        frameBorder="no"
+        allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//on.soundcloud.com/4KUlZeQO8z9YbrxnPu&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
+        style={{ opacity: 0, position: 'absolute', pointerEvents: 'none' }}
+      />
       
       <div className="fixed bottom-6 right-6 z-50">
         <Button
