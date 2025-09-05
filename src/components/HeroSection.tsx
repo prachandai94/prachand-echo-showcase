@@ -4,9 +4,13 @@ import AudioPlayer from "./AudioPlayer";
 
 const HeroSection = () => {
   const [showAudioPlayer, setShowAudioPlayer] = useState(false);
+  const [startAudio, setStartAudio] = useState(false);
 
   const handleExperienceEcho = () => {
+    console.log('Experience Echo clicked');
     setShowAudioPlayer(true);
+    // Small delay to ensure audio player is mounted before starting
+    setTimeout(() => setStartAudio(true), 500);
     document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -82,8 +86,9 @@ const HeroSection = () => {
       {/* Audio Player */}
       <AudioPlayer 
         isVisible={showAudioPlayer}
-        onPlay={() => {}}
-        onPause={() => {}}
+        startPlaying={startAudio}
+        onPlay={() => console.log('Audio playing')}
+        onPause={() => console.log('Audio paused')}
       />
     </section>
   );

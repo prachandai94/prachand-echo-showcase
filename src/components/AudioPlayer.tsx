@@ -6,51 +6,111 @@ interface AudioPlayerProps {
   isVisible: boolean;
   onPlay: () => void;
   onPause: () => void;
+  startPlaying?: boolean;
 }
 
-const AudioPlayer = ({ isVisible, onPlay, onPause }: AudioPlayerProps) => {
+const AudioPlayer = ({ isVisible, onPlay, onPause, startPlaying = false }: AudioPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [widget, setWidget] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     if (isVisible && !widget) {
+      setIsLoading(true);
+      setError(null);
+      
+      // Check if SoundCloud API is already loaded
+      if ((window as any).SC) {
+        initializeWidget();
+        return;
+      }
+      
       // Load SoundCloud Widget API
       const script = document.createElement('script');
       script.src = 'https://w.soundcloud.com/player/api.js';
       script.onload = () => {
-        if (iframeRef.current && (window as any).SC) {
-          const soundcloudWidget = (window as any).SC.Widget(iframeRef.current);
-          setWidget(soundcloudWidget);
-          
-          soundcloudWidget.bind((window as any).SC.Widget.Events.READY, () => {
-            soundcloudWidget.play();
-            setIsPlaying(true);
-            onPlay();
-          });
-
-          soundcloudWidget.bind((window as any).SC.Widget.Events.PLAY, () => {
-            setIsPlaying(true);
-            onPlay();
-          });
-
-          soundcloudWidget.bind((window as any).SC.Widget.Events.PAUSE, () => {
-            setIsPlaying(false);
-            onPause();
-          });
-        }
+        console.log('SoundCloud API loaded');
+        setTimeout(initializeWidget, 100); // Small delay to ensure iframe is ready
+      };
+      script.onerror = () => {
+        console.error('Failed to load SoundCloud API');
+        setError('Failed to load audio player');
+        setIsLoading(false);
       };
       document.head.appendChild(script);
     }
   }, [isVisible]);
 
+  // Separate effect to handle playing when startPlaying changes
+  useEffect(() => {
+    if (widget && startPlaying && !isPlaying) {
+      console.log('Starting playback from startPlaying prop');
+      widget.play();
+    }
+  }, [widget, startPlaying]);
+
+  const initializeWidget = () => {
+    if (iframeRef.current && (window as any).SC) {
+      try {
+        const soundcloudWidget = (window as any).SC.Widget(iframeRef.current);
+        setWidget(soundcloudWidget);
+        
+        soundcloudWidget.bind((window as any).SC.Widget.Events.READY, () => {
+          console.log('SoundCloud widget ready');
+          setIsLoading(false);
+          // Don't autoplay - wait for user interaction
+        });
+
+        soundcloudWidget.bind((window as any).SC.Widget.Events.PLAY, () => {
+          console.log('Audio started playing');
+          setIsPlaying(true);
+          onPlay();
+        });
+
+        soundcloudWidget.bind((window as any).SC.Widget.Events.PAUSE, () => {
+          console.log('Audio paused');
+          setIsPlaying(false);
+          onPause();
+        });
+
+        soundcloudWidget.bind((window as any).SC.Widget.Events.FINISH, () => {
+          console.log('Audio finished');
+          setIsPlaying(false);
+          onPause();
+        });
+
+        soundcloudWidget.bind((window as any).SC.Widget.Events.ERROR, () => {
+          console.error('SoundCloud widget error');
+          setError('Failed to load audio track');
+          setIsLoading(false);
+        });
+      } catch (err) {
+        console.error('Error initializing SoundCloud widget:', err);
+        setError('Failed to initialize audio player');
+        setIsLoading(false);
+      }
+    }
+  };
+
   const togglePlayback = () => {
-    if (widget) {
+    if (!widget) {
+      console.warn('Widget not ready yet');
+      return;
+    }
+    
+    try {
       if (isPlaying) {
+        console.log('Pausing audio');
         widget.pause();
       } else {
+        console.log('Playing audio');
         widget.play();
       }
+    } catch (err) {
+      console.error('Error toggling playback:', err);
+      setError('Failed to control audio playback');
     }
   };
 
@@ -75,13 +135,33 @@ const AudioPlayer = ({ isVisible, onPlay, onPause }: AudioPlayerProps) => {
           size="icon"
           className="h-14 w-14 rounded-full bg-background/80 backdrop-blur-sm border-primary/20 hover:bg-primary/10 shadow-lg"
           onClick={togglePlayback}
+          disabled={isLoading || !!error}
         >
-          {isPlaying ? (
+          {isLoading ? (
+            <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+          ) : error ? (
+            <div className="text-destructive text-xs">!</div>
+          ) : isPlaying ? (
             <Pause className="h-6 w-6 text-primary" />
           ) : (
             <Play className="h-6 w-6 text-primary" />
           )}
         </Button>
+        
+        {error && (
+          <div className="absolute bottom-16 right-0 bg-destructive text-destructive-foreground p-2 rounded text-xs whitespace-nowrap">
+            {error}
+            <br />
+            <a 
+              href="https://on.soundcloud.com/4KUlZeQO8z9YbrxnPu" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Listen on SoundCloud
+            </a>
+          </div>
+        )}
       </div>
     </>
   );
