@@ -1,6 +1,22 @@
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const HeroSection = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const playBackgroundMusic = () => {
+    if (!isPlaying) {
+      // Create hidden SoundCloud iframe for autoplay
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1659737985&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true';
+      iframe.style.display = 'none';
+      iframe.allow = 'autoplay';
+      document.body.appendChild(iframe);
+      setIsPlaying(true);
+    }
+    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Audio Waves */}
