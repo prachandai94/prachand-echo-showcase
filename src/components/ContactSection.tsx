@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Send, Phone, Mail, MapPin } from "lucide-react";
+import { Send, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -62,15 +62,15 @@ const ContactSection = () => {
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
               
               <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <div className="font-medium">Phone</div>
-                    <div className="text-muted-foreground">+1 (555) 123-4567</div>
-                  </div>
-                </div>
+                 <div className="flex items-center gap-4">
+                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                     <Phone className="w-6 h-6 text-primary" />
+                   </div>
+                   <div>
+                     <div className="font-medium">Phone</div>
+                     <div className="text-muted-foreground">+91 9766774215</div>
+                   </div>
+                 </div>
                 
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -95,21 +95,15 @@ const ContactSection = () => {
             </div>
 
             <div className="bg-card rounded-xl p-8 border border-border animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <h4 className="text-xl font-bold mb-4">Studio Hours</h4>
-              <div className="space-y-2 text-muted-foreground">
-                <div className="flex justify-between">
-                  <span>Monday - Friday</span>
-                  <span>9:00 AM - 10:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Saturday</span>
-                  <span>10:00 AM - 8:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Sunday</span>
-                  <span>12:00 PM - 6:00 PM</span>
-                </div>
-              </div>
+              <h4 className="text-xl font-bold mb-6">Quick Contact</h4>
+              <Button
+                onClick={() => window.open('https://wa.me/919766774215', '_blank')}
+                className="w-full bg-green-500 hover:bg-green-600 text-white border-0"
+                size="lg"
+              >
+                <MessageCircle className="w-5 h-5 mr-2" />
+                WhatsApp Us
+              </Button>
             </div>
           </div>
 

@@ -4,7 +4,7 @@ const services = [
   {
     icon: Mic,
     title: "Dubbing",
-    description: "Professional voice-over recording and synchronization services for films, commercials, and multimedia content."
+    description: "Professional voice-over recording and synchronization in English, Hindi, Tamil, Telugu, Malayalam, Bengali, Kannada, and Arabic for films, commercials, and multimedia content."
   },
   {
     icon: Radio,

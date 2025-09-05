@@ -51,10 +51,10 @@ const HeroSection = () => {
         
         <div className="mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
           <p className="text-xl md:text-2xl text-muted-foreground mb-2">
-            Where Sound Meets Perfection
+            Your Content's Heartbeat
           </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Professional audio production, mixing, and sound design that transforms your vision into sonic reality
+            Professional audio production, mixing, and sound design that makes your visuals hit!
           </p>
         </div>
 
