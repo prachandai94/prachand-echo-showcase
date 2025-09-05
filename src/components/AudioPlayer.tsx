@@ -12,8 +12,10 @@ interface AudioPlayerProps {
 const AudioPlayer = ({ isVisible, onPlay, onPause, startPlaying = false }: AudioPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [widget, setWidget] = useState<any>(null);
+  const [widgetReady, setWidgetReady] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [pendingPlay, setPendingPlay] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
@@ -43,13 +45,25 @@ const AudioPlayer = ({ isVisible, onPlay, onPause, startPlaying = false }: Audio
     }
   }, [isVisible]);
 
-  // Separate effect to handle playing when startPlaying changes
+  // Handle play requests when widget becomes ready or startPlaying changes
   useEffect(() => {
-    if (widget && startPlaying && !isPlaying) {
+    if (widget && widgetReady && startPlaying && !isPlaying) {
       console.log('Starting playback from startPlaying prop');
       widget.play();
+      setPendingPlay(false);
+    } else if (startPlaying && !widgetReady) {
+      setPendingPlay(true);
     }
-  }, [widget, startPlaying]);
+  }, [widget, widgetReady, startPlaying, isPlaying]);
+
+  // Handle pending play requests when widget becomes ready
+  useEffect(() => {
+    if (widget && widgetReady && pendingPlay && !isPlaying) {
+      console.log('Playing pending audio request');
+      widget.play();
+      setPendingPlay(false);
+    }
+  }, [widget, widgetReady, pendingPlay, isPlaying]);
 
   const initializeWidget = () => {
     if (iframeRef.current && (window as any).SC) {
@@ -59,8 +73,9 @@ const AudioPlayer = ({ isVisible, onPlay, onPause, startPlaying = false }: Audio
         
         soundcloudWidget.bind((window as any).SC.Widget.Events.READY, () => {
           console.log('SoundCloud widget ready');
+          setWidgetReady(true);
           setIsLoading(false);
-          // Don't autoplay - wait for user interaction
+          setError(null);
         });
 
         soundcloudWidget.bind((window as any).SC.Widget.Events.PLAY, () => {
@@ -95,8 +110,9 @@ const AudioPlayer = ({ isVisible, onPlay, onPause, startPlaying = false }: Audio
   };
 
   const togglePlayback = () => {
-    if (!widget) {
+    if (!widget || !widgetReady) {
       console.warn('Widget not ready yet');
+      setError('Audio player is still loading...');
       return;
     }
     
@@ -125,7 +141,7 @@ const AudioPlayer = ({ isVisible, onPlay, onPause, startPlaying = false }: Audio
         scrolling="no"
         frameBorder="no"
         allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//on.soundcloud.com/4KUlZeQO8z9YbrxnPu&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/echostudiosradio/echo-studios-radio-show-april-2024&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
         style={{ opacity: 0, position: 'absolute', pointerEvents: 'none' }}
       />
       
@@ -135,7 +151,7 @@ const AudioPlayer = ({ isVisible, onPlay, onPause, startPlaying = false }: Audio
           size="icon"
           className="h-14 w-14 rounded-full bg-background/80 backdrop-blur-sm border-primary/20 hover:bg-primary/10 shadow-lg"
           onClick={togglePlayback}
-          disabled={isLoading || !!error}
+          disabled={isLoading || !!error || !widgetReady}
         >
           {isLoading ? (
             <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
