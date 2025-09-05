@@ -125,7 +125,7 @@ const AudioPlayer = ({ isVisible, onPlay, onPause, startPlaying = false }: Audio
         scrolling="no"
         frameBorder="no"
         allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//on.soundcloud.com/4KUlZeQO8z9YbrxnPu&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
+        src="https://w.soundcloud.com/player/?url=https%3A//on.soundcloud.com/4KUlZeQO8z9YbrxnPu&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
         style={{ opacity: 0, position: 'absolute', pointerEvents: 'none' }}
       />
       
