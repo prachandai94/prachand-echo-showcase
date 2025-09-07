@@ -4,17 +4,17 @@ const services = [
   {
     icon: Mic,
     title: "Dubbing (Human)",
-    description: "Professional voice-over recording and synchronization in English, Hindi, Tamil, Telugu, Malayalam, Bengali, Kannada, and Arabic for films, commercials, and multimedia content."
+    description: "Professional high quality human dubbing for cinema and short forms in English, Hindi, Tamil, Telugu, Malayalam, Bengali, Kannada, and Arabic and other languages."
   },
   {
     icon: Volume2,
     title: "AI Dubbing",
-    description: "Revolutionary AI-powered dubbing with precise lip-sync technology, enabling seamless content localization across global languages while maintaining natural voice expressions and emotional depth."
+    description: "Revolutionary AI-powered dubbing with precise lip-sync technology, seamless content localization across global languages."
   },
   {
     icon: Radio,
     title: "Mixing & Mastering",
-    description: "Expert audio mixing and mastering to achieve the perfect balance, clarity, and professional sound quality."
+    description: "Expert audio mixing and mastering to achieve the on par quality, Dolby, 5.1 & other mediums also available."
   },
   {
     icon: Music,
@@ -36,7 +36,7 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div
               key={service.title}
