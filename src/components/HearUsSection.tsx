@@ -78,8 +78,12 @@ const HearUsSection = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
               onClick={() => openCaseStudy(study)}
             >
-              <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                <Volume2 className="w-12 h-12 text-primary group-hover:scale-110 transition-transform duration-300" />
+              <div className="aspect-square overflow-hidden">
+                <img 
+                  src={study.image} 
+                  alt={study.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
               </div>
               
               <div className="p-6">
