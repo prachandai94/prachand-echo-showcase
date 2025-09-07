@@ -35,7 +35,7 @@ const caseStudies = [{
   title: "Hear Velvet x Echo Immersive Audiobook Experience",
   category: "3D Audio Production",
   description: "Prachand Echo collaborated with Hear Velvet, an audio-first company backed by actor Pankaj Tripathi, to create an original IP that redefined the listening experience. Our team designed a 3D sound environment using advanced ambisonics technology, enabling listeners to feel as though they were inside the world of the story. Every element, from character voices to environmental soundscapes, was engineered to move seamlessly in three-dimensional space, resulting in an audiobook that felt like cinema for the ears. The immersive production captivated audiences with its realism and emotional depth, setting a new benchmark for narrative audio. This project highlights our ability to push the boundaries of storytelling through cutting-edge sound design and creative innovation.",
-  image: "/lovable-uploads/5541ddf0-87c7-48db-bd0c-f46c5ad4bb8b.png",
+  image: "/lovable-uploads/65bc7e7c-f7ce-4b2c-a0c2-6e447be967b1.png",
   hearNowUrl: "#"
 }, {
   id: 6,
