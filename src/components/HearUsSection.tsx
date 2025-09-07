@@ -7,7 +7,7 @@ const caseStudies = [{
   title: "High Profile Web Series",
   category: "Web Series Sound Design & Mixing",
   description: "Prachand Echo has been entrusted with managing the mixing and sound design for a prestigious upcoming web series featuring Piyush Mishra, Tigmanshu Dhulia, and Anita Hassanandani. The scale of this project required us to build a sonic world that matched the cinematic ambition of the narrative and the stature of its cast. From balancing complex dialogue-heavy sequences to layering atmospheric soundscapes, our approach ensures that every performance resonates with emotional intensity while maintaining technical precision. Working with industry veterans demanded both sensitivity and innovation, and Prachand Echo rose to the challenge by creating a workflow that merges artistry with efficiency. This ongoing collaboration solidifies our reputation as a go-to partner for high profile productions that require world-class sound.",
-  image: "/lovable-uploads/e5b6dcd9-2a7e-44c7-8cd3-fc17d141eb52.png",
+  image: "/lovable-uploads/52a9c563-1e27-47af-963a-1243ac54a2da.png",
   hearNowUrl: "#"
 }, {
   id: 2,
