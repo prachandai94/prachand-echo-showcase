@@ -21,7 +21,7 @@ const caseStudies = [{
   title: "Audiobook Series IP For Globocom & Tiara Digital",
   category: "Audio Production",
   description: "Prachand Echo collaborated with Globocom to power the launch of their new audio platform. Our team created and delivered over three original fictional audiobook series, designed to immerse listeners in cinematic storytelling purely through sound. From scripting and narration direction to recording, sound design, and mastering, we handled the entire production pipeline. The result was a set of rich, character-driven audio experiences that built strong engagement on the platform and set a new standard for quality in fictional audio entertainment. With additional series in development, this partnership highlights our expertise in combining narrative depth with technical precision, ensuring Globocom's platform establishes itself as a leader in the audiobook space.",
-  image: "/lovable-uploads/77679f78-3c21-45b5-8369-f6c8b509d5ee.png",
+  image: "/lovable-uploads/ce1f2240-0551-4e96-a9a0-21da888b79a3.png",
   hearNowUrl: "#"
 }, {
   id: 4,
