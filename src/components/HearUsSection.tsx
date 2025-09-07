@@ -101,11 +101,13 @@ const HearUsSection = () => {
                   {selectedCase.description}
                 </p>
                 
-                <div className="flex justify-center">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-3 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300" onClick={() => window.open(selectedCase.hearNowUrl, '_blank')}>
-                    🎧 Hear Now!
-                  </Button>
-                </div>
+                {selectedCase.id > 2 && (
+                  <div className="flex justify-center">
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-3 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300" onClick={() => window.open(selectedCase.hearNowUrl, '_blank')}>
+                      🎧 Hear Now!
+                    </Button>
+                  </div>
+                )}
               </div>
             </div>}
         </DialogContent>
