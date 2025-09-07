@@ -87,29 +87,32 @@ const HearUsSection = () => {
 
       {/* Case Study Modal */}
       <Dialog open={!!selectedCase} onOpenChange={() => setSelectedCase(null)}>
-        <DialogContent className="max-w-2xl bg-card border-border">
+        <DialogContent className="max-w-3xl bg-card border-border">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-foreground">
               {selectedCase?.title}
             </DialogTitle>
           </DialogHeader>
           
-          {selectedCase && <div className="space-y-6">
-              <div className="text-primary font-medium">{selectedCase.category}</div>
-              
-              <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg flex items-center justify-center">
-                <Volume2 className="w-20 h-20 text-primary" />
+          {selectedCase && <div className="grid md:grid-cols-3 gap-8">
+              <div className="md:col-span-1">
+                <div className="text-primary font-medium mb-4">{selectedCase.category}</div>
+                <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg flex items-center justify-center">
+                  <Volume2 className="w-16 h-16 text-primary" />
+                </div>
               </div>
               
-              <p className="text-muted-foreground leading-relaxed">
-                {selectedCase.description}
-              </p>
-              
-              <div className="flex items-center gap-4">
-                <Button variant="audio" size="lg" onClick={toggleAudio} className="flex items-center gap-2">
-                  {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
-                  {isPlaying ? "Pause" : "Play"} Audio
-                </Button>
+              <div className="md:col-span-2 space-y-6">
+                <p className="text-muted-foreground leading-relaxed text-lg">
+                  {selectedCase.description}
+                </p>
+                
+                <div className="flex items-center gap-4">
+                  <Button variant="audio" size="lg" onClick={toggleAudio} className="flex items-center gap-2">
+                    {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+                    {isPlaying ? "Pause" : "Play"} Audio
+                  </Button>
+                </div>
               </div>
             </div>}
         </DialogContent>
