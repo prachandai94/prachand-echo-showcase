@@ -1,6 +1,5 @@
 const AboutSection = () => {
-  return (
-    <section className="py-20 px-6">
+  return <section className="py-20 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <div className="animate-fade-in-up">
           <h2 className="text-5xl font-bold mb-8">
@@ -13,10 +12,7 @@ const AboutSection = () => {
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/5 rounded-full translate-y-12 -translate-x-12" />
             
             <div className="relative z-10">
-              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                Prachand Echo stands at the forefront of audio innovation, where cutting-edge technology meets artistic excellence. 
-                Our team of seasoned audio engineers and creative professionals transforms raw recordings into polished masterpieces.
-              </p>
+              <p className="text-xl text-muted-foreground leading-relaxed mb-8">Echo stands at the forefront of audio innovation, where technology meets artistic excellence. Our team of seasoned audio engineers and creative professionals transforms raw recordings into hit masterpieces.</p>
               
               <div className="grid md:grid-cols-3 gap-8 mt-12">
                 <div className="text-center">
@@ -36,8 +32,6 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
