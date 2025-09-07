@@ -20,8 +20,8 @@ const caseStudies = [{
   id: 3,
   title: "Audiobook Series IP For Globocom & Tiara Digital",
   category: "Audio Production",
-  description: "Produced a premium audiobook series featuring professional voice narration, immersive sound design, and seamless chapter transitions for global distribution.",
-  image: "/placeholder.svg",
+  description: "Prachand Echo collaborated with Globocom to power the launch of their new audio platform. Our team created and delivered over three original fictional audiobook series, designed to immerse listeners in cinematic storytelling purely through sound. From scripting and narration direction to recording, sound design, and mastering, we handled the entire production pipeline. The result was a set of rich, character-driven audio experiences that built strong engagement on the platform and set a new standard for quality in fictional audio entertainment. With additional series in development, this partnership highlights our expertise in combining narrative depth with technical precision, ensuring Globocom's platform establishes itself as a leader in the audiobook space.",
+  image: "/lovable-uploads/5f05b60d-72d5-4596-bd33-3192dd2b9799.png",
   audioUrl: "#"
 }, {
   id: 4,
@@ -97,8 +97,12 @@ const HearUsSection = () => {
           {selectedCase && <div className="grid md:grid-cols-3 gap-8">
               <div className="md:col-span-1">
                 <div className="text-primary font-medium mb-4">{selectedCase.category}</div>
-                <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg flex items-center justify-center">
-                  <Volume2 className="w-16 h-16 text-primary" />
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <img 
+                    src={selectedCase.image} 
+                    alt={selectedCase.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               
