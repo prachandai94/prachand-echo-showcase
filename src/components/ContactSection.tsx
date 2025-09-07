@@ -51,7 +51,7 @@ const ContactSection = () => {
             Get In <span className="text-primary">Touch</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to create something extraordinary? Let's discuss your project
+            Ready to your sound echo in your audience's heart? Let's make it happen!
           </p>
         </div>
 
@@ -68,7 +68,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <div className="font-medium">Email</div>
-                    <div className="text-muted-foreground">hello@prachandecho.com</div>
+                    <div className="text-muted-foreground">echo@prachandentertainment.com</div>
                   </div>
                 </div>
               </div>

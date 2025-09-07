@@ -3,8 +3,13 @@ import { Mic, Music, Volume2, Radio } from "lucide-react";
 const services = [
   {
     icon: Mic,
-    title: "Dubbing",
+    title: "Dubbing (Human)",
     description: "Professional voice-over recording and synchronization in English, Hindi, Tamil, Telugu, Malayalam, Bengali, Kannada, and Arabic for films, commercials, and multimedia content."
+  },
+  {
+    icon: Volume2,
+    title: "AI Dubbing",
+    description: "Revolutionary AI-powered dubbing with precise lip-sync technology, enabling seamless content localization across global languages while maintaining natural voice expressions and emotional depth."
   },
   {
     icon: Radio,
