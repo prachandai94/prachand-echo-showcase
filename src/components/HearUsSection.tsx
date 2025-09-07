@@ -2,26 +2,27 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Play, Pause, Volume2 } from "lucide-react";
+
 const caseStudies = [{
   id: 1,
   title: "Epic Movie Soundtrack",
   category: "Film Scoring",
   description: "Composed and produced a cinematic orchestral score for a blockbuster action film, featuring 40-piece orchestra recordings and immersive sound design.",
-  image: "/placeholder.svg",
+  image: "/lovable-uploads/deebeb72-01ef-4848-8157-1c3d026b8b8e.png",
   audioUrl: "#"
 }, {
   id: 2,
   title: "Commercial Jingle",
   category: "Advertising",
   description: "Created a catchy, memorable jingle for a major brand campaign that increased brand recognition by 85% within three months of release.",
-  image: "/placeholder.svg",
+  image: "/lovable-uploads/e5b6dcd9-2a7e-44c7-8cd3-fc17d141eb52.png",
   audioUrl: "#"
 }, {
   id: 3,
   title: "Audiobook Series IP For Globocom & Tiara Digital",
   category: "Audio Production",
   description: "Prachand Echo collaborated with Globocom to power the launch of their new audio platform. Our team created and delivered over three original fictional audiobook series, designed to immerse listeners in cinematic storytelling purely through sound. From scripting and narration direction to recording, sound design, and mastering, we handled the entire production pipeline. The result was a set of rich, character-driven audio experiences that built strong engagement on the platform and set a new standard for quality in fictional audio entertainment. With additional series in development, this partnership highlights our expertise in combining narrative depth with technical precision, ensuring Globocom's platform establishes itself as a leader in the audiobook space.",
-  image: "/lovable-uploads/5f05b60d-72d5-4596-bd33-3192dd2b9799.png",
+  image: "/lovable-uploads/77679f78-3c21-45b5-8369-f6c8b509d5ee.png",
   audioUrl: "#"
 }, {
   id: 4,
@@ -45,17 +46,22 @@ const caseStudies = [{
   image: "/placeholder.svg",
   audioUrl: "#"
 }];
+
 const HearUsSection = () => {
   const [selectedCase, setSelectedCase] = useState<typeof caseStudies[0] | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+
   const openCaseStudy = (caseStudy: typeof caseStudies[0]) => {
     setSelectedCase(caseStudy);
   };
+
   const toggleAudio = () => {
     setIsPlaying(!isPlaying);
     // Here you would implement actual audio playback
   };
-  return <section className="py-20 px-6">
+
+  return (
+    <section className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-6">
@@ -65,9 +71,13 @@ const HearUsSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {caseStudies.map((study, index) => <div key={study.id} className="bg-card rounded-xl overflow-hidden border border-border hover-lift cursor-pointer group animate-fade-in-up" style={{
-          animationDelay: `${index * 0.1}s`
-        }} onClick={() => openCaseStudy(study)}>
+          {caseStudies.map((study, index) => (
+            <div 
+              key={study.id} 
+              className="bg-card rounded-xl overflow-hidden border border-border hover-lift cursor-pointer group animate-fade-in-up" 
+              style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={() => openCaseStudy(study)}
+            >
               <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
                 <Volume2 className="w-12 h-12 text-primary group-hover:scale-110 transition-transform duration-300" />
               </div>
@@ -81,7 +91,8 @@ const HearUsSection = () => {
                   {study.description.substring(0, 80)}...
                 </p>
               </div>
-            </div>)}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -94,10 +105,11 @@ const HearUsSection = () => {
             </DialogTitle>
           </DialogHeader>
           
-          {selectedCase && <div className="grid md:grid-cols-3 gap-8">
+          {selectedCase && (
+            <div className="grid md:grid-cols-3 gap-8">
               <div className="md:col-span-1">
                 <div className="text-primary font-medium mb-4">{selectedCase.category}</div>
-                <div className="aspect-video rounded-lg overflow-hidden">
+                <div className="aspect-square rounded-lg overflow-hidden">
                   <img 
                     src={selectedCase.image} 
                     alt={selectedCase.title}
@@ -118,9 +130,12 @@ const HearUsSection = () => {
                   </Button>
                 </div>
               </div>
-            </div>}
+            </div>
+          )}
         </DialogContent>
       </Dialog>
-    </section>;
+    </section>
+  );
 };
+
 export default HearUsSection;
