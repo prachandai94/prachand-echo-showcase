@@ -14,7 +14,7 @@ const caseStudies = [{
   title: "Let Us Live In - India's First Vertical Web Series",
   category: "Web Series Sound Design & Music",
   description: "Prachand Echo played a central role in shaping the sound of Let Us Live In, India's first vertical format web series. We managed the complete mixing process, balancing dialogues, ambient textures, and effects to enhance clarity while preserving emotional depth. Beyond mixing, we also composed and produced the original background score, giving the series its unique sonic identity. The score was crafted to match the narrative beats, shifting seamlessly from lighthearted intimacy to high tension drama, amplifying the impact of every scene. By combining meticulous technical precision with creative storytelling through music, Prachand Echo elevated the viewing experience and set a benchmark for vertical series sound design in India. This project showcased our dual expertise in mixing and music composition for new-age storytelling formats.",
-  image: "/lovable-uploads/2acb0bb0-7737-4012-bb41-ab491ac9285a.png",
+  image: "/lovable-uploads/5af2ab13-e35d-46fb-8104-4134e5cdcc13.png",
   hearNowUrl: "#"
 }, {
   id: 3,
