@@ -39,9 +39,9 @@ const caseStudies = [{
   audioUrl: "#"
 }, {
   id: 6,
-  title: "Live Concert Recording",
-  category: "Live Audio",
-  description: "Captured and mixed a live symphony orchestra performance using 32-channel recording setup, preserving the natural acoustics of the venue.",
+  title: "Reelsaga Micro Drama Dubbing Excellence",
+  category: "Micro Drama Dubbing",
+  description: "Prachand Echo collaborated with Reelsaga, a pioneering platform for micro drama, to achieve one of the most ambitious dubbing feats in the industry. We became known as experts in dubbing micro drama after adapting their entire content library from English into Hindi, Tamil, Telugu, and Kannada, series by series. This end to end process involved translation, voice casting, dubbing, mixing, and mastering while ensuring that every performance retained the nuance and impact of the original. By making their content accessible in multiple languages, we not only amplified Reelsaga's reach but also set a benchmark for scale and quality in short format dubbing. This case highlights our ability to deliver cultural authenticity and technical precision at high volumes without compromising storytelling.",
   image: "/placeholder.svg",
   audioUrl: "#"
 }];
