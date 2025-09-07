@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-
 const caseStudies = [{
   id: 1,
   title: "High Profile Web Series",
@@ -45,38 +44,26 @@ const caseStudies = [{
   image: "/lovable-uploads/31f00b2d-a308-4340-b61f-a89d97f5ea11.png",
   hearNowUrl: "#"
 }];
-
 const HearUsSection = () => {
   const [selectedCase, setSelectedCase] = useState<typeof caseStudies[0] | null>(null);
-
   const openCaseStudy = (caseStudy: typeof caseStudies[0]) => {
     setSelectedCase(caseStudy);
   };
-
-  return (
-    <section className="py-20 px-6">
+  return <section className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-6">
             Hear <span className="text-primary">Us</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Portfolio and Audio Samples</p>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Case Studies and Audio Samples</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {caseStudies.map((study, index) => (
-            <div 
-              key={study.id} 
-              className="bg-card rounded-xl overflow-hidden border border-border hover-lift cursor-pointer group animate-fade-in-up" 
-              style={{ animationDelay: `${index * 0.1}s` }}
-              onClick={() => openCaseStudy(study)}
-            >
+          {caseStudies.map((study, index) => <div key={study.id} className="bg-card rounded-xl overflow-hidden border border-border hover-lift cursor-pointer group animate-fade-in-up" style={{
+          animationDelay: `${index * 0.1}s`
+        }} onClick={() => openCaseStudy(study)}>
               <div className="aspect-square overflow-hidden">
-                <img 
-                  src={study.image} 
-                  alt={study.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
+                <img src={study.image} alt={study.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
               </div>
               
               <div className="p-6">
@@ -88,8 +75,7 @@ const HearUsSection = () => {
                   {study.description.substring(0, 80)}...
                 </p>
               </div>
-            </div>
-          ))}
+            </div>)}
         </div>
       </div>
 
@@ -102,16 +88,11 @@ const HearUsSection = () => {
             </DialogTitle>
           </DialogHeader>
           
-          {selectedCase && (
-            <div className="grid md:grid-cols-3 gap-8">
+          {selectedCase && <div className="grid md:grid-cols-3 gap-8">
               <div className="md:col-span-1">
                 <div className="text-primary font-medium mb-4">{selectedCase.category}</div>
                 <div className="aspect-square rounded-lg overflow-hidden">
-                  <img 
-                    src={selectedCase.image} 
-                    alt={selectedCase.title}
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={selectedCase.image} alt={selectedCase.title} className="w-full h-full object-cover" />
                 </div>
               </div>
               
@@ -121,21 +102,14 @@ const HearUsSection = () => {
                 </p>
                 
                 <div className="flex justify-center">
-                  <Button 
-                    size="lg"
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-3 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                    onClick={() => window.open(selectedCase.hearNowUrl, '_blank')}
-                  >
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-3 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-300" onClick={() => window.open(selectedCase.hearNowUrl, '_blank')}>
                     🎧 Hear Now!
                   </Button>
                 </div>
               </div>
-            </div>
-          )}
+            </div>}
         </DialogContent>
       </Dialog>
-    </section>
-  );
+    </section>;
 };
-
 export default HearUsSection;
