@@ -18,9 +18,9 @@ const caseStudies = [{
   audioUrl: "#"
 }, {
   id: 3,
-  title: "Podcast Series",
+  title: "Audiobook Series IP For Globocom & Tiara Digital",
   category: "Audio Production",
-  description: "Mixed and mastered a 12-episode true crime podcast series, implementing advanced noise reduction and dynamic audio processing techniques.",
+  description: "Produced a premium audiobook series featuring professional voice narration, immersive sound design, and seamless chapter transitions for global distribution.",
   image: "/placeholder.svg",
   audioUrl: "#"
 }, {
