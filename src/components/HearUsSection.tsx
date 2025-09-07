@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Play, Pause, Volume2 } from "lucide-react";
+import SimpleAudioPlayer from "./SimpleAudioPlayer";
 
 const caseStudies = [{
   id: 1,
@@ -49,15 +48,9 @@ const caseStudies = [{
 
 const HearUsSection = () => {
   const [selectedCase, setSelectedCase] = useState<typeof caseStudies[0] | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   const openCaseStudy = (caseStudy: typeof caseStudies[0]) => {
     setSelectedCase(caseStudy);
-  };
-
-  const toggleAudio = () => {
-    setIsPlaying(!isPlaying);
-    // Here you would implement actual audio playback
   };
 
   return (
@@ -127,12 +120,10 @@ const HearUsSection = () => {
                   {selectedCase.description}
                 </p>
                 
-                <div className="flex items-center gap-4">
-                  <Button variant="audio" size="lg" onClick={toggleAudio} className="flex items-center gap-2">
-                    {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
-                    {isPlaying ? "Pause" : "Play"} Audio
-                  </Button>
-                </div>
+                <SimpleAudioPlayer
+                  audioUrl={selectedCase.audioUrl}
+                  title={selectedCase.title}
+                />
               </div>
             </div>
           )}

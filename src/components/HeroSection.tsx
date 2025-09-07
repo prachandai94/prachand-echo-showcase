@@ -1,16 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import AudioPlayer from "./AudioPlayer";
 
 const HeroSection = () => {
-  const [showAudioPlayer, setShowAudioPlayer] = useState(false);
-  const [startAudio, setStartAudio] = useState(false);
-
   const handleExperienceEcho = () => {
     console.log('Experience Echo clicked');
-    setShowAudioPlayer(true);
-    // Small delay to ensure audio player is mounted before starting
-    setTimeout(() => setStartAudio(true), 500);
     document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -82,14 +74,6 @@ const HeroSection = () => {
 
       {/* Glow Effects */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-glow" />
-      
-      {/* Audio Player */}
-      <AudioPlayer 
-        isVisible={showAudioPlayer}
-        startPlaying={startAudio}
-        onPlay={() => console.log('Audio playing')}
-        onPause={() => console.log('Audio paused')}
-      />
     </section>
   );
 };
