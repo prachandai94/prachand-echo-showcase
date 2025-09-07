@@ -2,13 +2,13 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 const allArtists = [{
-  name: "Sarah Johnson",
-  role: "Lead Vocalist",
-  image: "/placeholder.svg"
+  name: "Mazen Aly",
+  role: "Composer",
+  image: "/lovable-uploads/3c289ed5-bbde-43cd-96f9-a509d3c3b61f.png"
 }, {
-  name: "Marcus Chen",
-  role: "Audio Engineer",
-  image: "/placeholder.svg"
+  name: "Tapan Dutta",
+  role: "Music Director",
+  image: "/lovable-uploads/f1d572bc-c3bf-4d35-959e-5e66a8c6ba98.png"
 }, {
   name: "Elena Rodriguez",
   role: "Sound Designer",
@@ -59,12 +59,22 @@ const ArtistRosterSection = () => {
             animationDelay: `${index * 0.1}s`
           }}>
                 <div className="mb-6">
-                  <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full mx-auto flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/10 transition-all duration-300">
-                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
-                      <span className="text-2xl font-bold text-primary">
-                        {artist.name.split(' ').map(n => n[0]).join('')}
-                      </span>
-                    </div>
+                  <div className="w-24 h-24 rounded-full mx-auto overflow-hidden group-hover:scale-105 transition-all duration-300">
+                    {artist.image.includes('placeholder') ? (
+                      <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/10">
+                        <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
+                          <span className="text-2xl font-bold text-primary">
+                            {artist.name.split(' ').map(n => n[0]).join('')}
+                          </span>
+                        </div>
+                      </div>
+                    ) : (
+                      <img 
+                        src={artist.image} 
+                        alt={artist.name}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
                   </div>
                 </div>
                 
