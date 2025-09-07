@@ -68,7 +68,7 @@ const HearUsSection = () => {
           {caseStudies.map((study, index) => <div key={study.id} className="bg-card rounded-xl overflow-hidden border border-border hover-lift cursor-pointer group animate-fade-in-up" style={{
           animationDelay: `${index * 0.1}s`
         }} onClick={() => openCaseStudy(study)}>
-              <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+              <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
                 <Volume2 className="w-12 h-12 text-primary group-hover:scale-110 transition-transform duration-300" />
               </div>
               
