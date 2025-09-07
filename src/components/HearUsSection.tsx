@@ -28,7 +28,7 @@ const caseStudies = [{
   title: "Echo 1000 Hours of Regional Dubbing",
   category: "Voice Over & Dubbing",
   description: "Prachand Echo has established itself as a trusted partner for large scale dubbing projects across India's diverse linguistic landscape. Our team has successfully completed over 1000 hours of dubbing in regional languages including Bengali, Telugu, and Kannada, with more work underway. Each project required careful voice casting, script adaptation, and precise lip sync to ensure cultural and emotional authenticity. By maintaining the integrity of the original content while tailoring it to resonate with regional audiences, we helped our clients scale their reach and expand to new markets. This case reflects our expertise in managing high volume dubbing operations while keeping uncompromising quality at the core of every delivery.",
-  image: "/lovable-uploads/26bdb541-2bd7-4418-9997-e976c7869847.png",
+  image: "/lovable-uploads/aa1ed757-8e54-4736-8469-f527b02b3557.png",
   hearNowUrl: "#"
 }, {
   id: 5,
