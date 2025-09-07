@@ -4,16 +4,16 @@ import SimpleAudioPlayer from "./SimpleAudioPlayer";
 
 const caseStudies = [{
   id: 1,
-  title: "Epic Movie Soundtrack",
-  category: "Film Scoring",
-  description: "Composed and produced a cinematic orchestral score for a blockbuster action film, featuring 40-piece orchestra recordings and immersive sound design.",
+  title: "High Profile Web Series",
+  category: "Web Series Sound Design & Mixing",
+  description: "Prachand Echo has been entrusted with managing the mixing and sound design for a prestigious upcoming web series featuring Piyush Mishra, Tigmanshu Dhulia, and Anita Hassanandani. The scale of this project required us to build a sonic world that matched the cinematic ambition of the narrative and the stature of its cast. From balancing complex dialogue-heavy sequences to layering atmospheric soundscapes, our approach ensures that every performance resonates with emotional intensity while maintaining technical precision. Working with industry veterans demanded both sensitivity and innovation, and Prachand Echo rose to the challenge by creating a workflow that merges artistry with efficiency. This ongoing collaboration solidifies our reputation as a go-to partner for high profile productions that require world-class sound.",
   image: "/lovable-uploads/deebeb72-01ef-4848-8157-1c3d026b8b8e.png",
   audioUrl: "#"
 }, {
   id: 2,
-  title: "Commercial Jingle",
-  category: "Advertising",
-  description: "Created a catchy, memorable jingle for a major brand campaign that increased brand recognition by 85% within three months of release.",
+  title: "Let Us Live In - India's First Vertical Web Series",
+  category: "Web Series Sound Design & Music",
+  description: "Prachand Echo played a central role in shaping the sound of Let Us Live In, India's first vertical format web series. We managed the complete mixing process, balancing dialogues, ambient textures, and effects to enhance clarity while preserving emotional depth. Beyond mixing, we also composed and produced the original background score, giving the series its unique sonic identity. The score was crafted to match the narrative beats, shifting seamlessly from lighthearted intimacy to high tension drama, amplifying the impact of every scene. By combining meticulous technical precision with creative storytelling through music, Prachand Echo elevated the viewing experience and set a benchmark for vertical series sound design in India. This project showcased our dual expertise in mixing and music composition for new-age storytelling formats.",
   image: "/lovable-uploads/e5b6dcd9-2a7e-44c7-8cd3-fc17d141eb52.png",
   audioUrl: "#"
 }, {
