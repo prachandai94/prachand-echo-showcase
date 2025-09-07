@@ -13,21 +13,6 @@ const AboutSection = () => {
             
             <div className="relative z-10">
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">Echo stands at the forefront of audio innovation, where technology meets artistic excellence. Our team of seasoned audio engineers and creative professionals transforms raw recordings into hit masterpieces.</p>
-              
-              <div className="grid md:grid-cols-3 gap-8 mt-12">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">50+</div>
-                  <div className="text-muted-foreground">Projects Completed</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">10+</div>
-                  <div className="text-muted-foreground">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">24/7</div>
-                  <div className="text-muted-foreground">Studio Access</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

@@ -62,16 +62,6 @@ const ContactSection = () => {
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
               
               <div className="space-y-6">
-                 <div className="flex items-center gap-4">
-                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                     <Phone className="w-6 h-6 text-primary" />
-                   </div>
-                   <div>
-                     <div className="font-medium">Phone</div>
-                     <div className="text-muted-foreground">+91 9766774215</div>
-                   </div>
-                 </div>
-                
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                     <Mail className="w-6 h-6 text-primary" />
@@ -79,16 +69,6 @@ const ContactSection = () => {
                   <div>
                     <div className="font-medium">Email</div>
                     <div className="text-muted-foreground">hello@prachandecho.com</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <div className="font-medium">Studio Location</div>
-                    <div className="text-muted-foreground">123 Audio Street, Music City, MC 12345</div>
                   </div>
                 </div>
               </div>

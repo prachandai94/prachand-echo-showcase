@@ -4,32 +4,26 @@ import { Button } from "@/components/ui/button";
 const allArtists = [{
   name: "Sarah Johnson",
   role: "Lead Vocalist",
-  specialty: "Jazz & Soul",
   image: "/placeholder.svg"
 }, {
   name: "Marcus Chen",
   role: "Audio Engineer",
-  specialty: "Electronic Music",
   image: "/placeholder.svg"
 }, {
   name: "Elena Rodriguez",
   role: "Sound Designer",
-  specialty: "Film & TV",
   image: "/placeholder.svg"
 }, {
   name: "David Park",
   role: "Mixing Engineer",
-  specialty: "Rock & Metal",
   image: "/placeholder.svg"
 }, {
   name: "Aria Thompson",
   role: "Composer",
-  specialty: "Orchestral",
   image: "/placeholder.svg"
 }, {
   name: "James Wilson",
   role: "Mastering Engineer",
-  specialty: "All Genres",
   image: "/placeholder.svg"
 }];
 const ArtistRosterSection = () => {
@@ -81,10 +75,6 @@ const ArtistRosterSection = () => {
                 <div className="text-primary font-medium mb-2">
                   {artist.role}
                 </div>
-                
-                <p className="text-muted-foreground text-sm">
-                  {artist.specialty}
-                </p>
               </div>)}
           </div>
 
