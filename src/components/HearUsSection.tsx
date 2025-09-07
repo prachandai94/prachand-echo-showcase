@@ -25,16 +25,16 @@ const caseStudies = [{
   audioUrl: "#"
 }, {
   id: 4,
-  title: "Video Game OST",
-  category: "Game Audio",
-  description: "Developed an adaptive music system for an indie RPG game, featuring 20+ tracks that seamlessly blend based on player actions and story progression.",
-  image: "/placeholder.svg",
+  title: "Echo 1000 Hours of Regional Dubbing",
+  category: "Voice Over & Dubbing",
+  description: "Prachand Echo has established itself as a trusted partner for large scale dubbing projects across India's diverse linguistic landscape. Our team has successfully completed over 1000 hours of dubbing in regional languages including Bengali, Telugu, and Kannada, with more work underway. Each project required careful voice casting, script adaptation, and precise lip sync to ensure cultural and emotional authenticity. By maintaining the integrity of the original content while tailoring it to resonate with regional audiences, we helped our clients scale their reach and expand to new markets. This case reflects our expertise in managing high volume dubbing operations while keeping uncompromising quality at the core of every delivery.",
+  image: "/lovable-uploads/5f05b60d-72d5-4596-bd33-3192dd2b9799.png",
   audioUrl: "#"
 }, {
   id: 5,
-  title: "Documentary Narration",
-  category: "Voice Over",
-  description: "Provided complete audio post-production for a nature documentary, including voice-over recording, ambient sound design, and music composition.",
+  title: "Hear Velvet x Echo Immersive Audiobook Experience",
+  category: "3D Audio Production",
+  description: "Prachand Echo collaborated with Hear Velvet, an audio-first company backed by actor Pankaj Tripathi, to create an original IP that redefined the listening experience. Our team designed a 3D sound environment using advanced ambisonics technology, enabling listeners to feel as though they were inside the world of the story. Every element, from character voices to environmental soundscapes, was engineered to move seamlessly in three-dimensional space, resulting in an audiobook that felt like cinema for the ears. The immersive production captivated audiences with its realism and emotional depth, setting a new benchmark for narrative audio. This project highlights our ability to push the boundaries of storytelling through cutting-edge sound design and creative innovation.",
   image: "/placeholder.svg",
   audioUrl: "#"
 }, {
